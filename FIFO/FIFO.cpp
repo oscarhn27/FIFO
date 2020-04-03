@@ -30,6 +30,7 @@ public:
     // Methods
     void push(T data);
     T pop();
+    int size();
 };
 
 template <typename T>
@@ -50,7 +51,7 @@ void FIFO<T>::push(T data) {
 
 template <typename T>
 T FIFO<T>::pop() {
-    if (first == NULL) {
+    if (!size()) {
         cout << "FIFO is empty" << endl;
         return NULL;
     } else {
@@ -67,6 +68,11 @@ T FIFO<T>::pop() {
         sizeQueue--;
 
         return data;
+    }
+    
+    template <typename T>
+    int FIFO<T>::size() {
+        return sizeQueue;
     }
 }
 
